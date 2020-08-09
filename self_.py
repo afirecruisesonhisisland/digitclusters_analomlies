@@ -26,29 +26,26 @@ while len(container) < 4:
             pass
         else:
             optimized_map = []
+            host = []
             action = []
             poss = [e for e in range(len(container))]
-            # print(container)
             for i in (range(len(container))):
                 include = [w for w in poss if w != i]
                 for q in range(len(include)+1):
+                    host = [j for t in optimized_map for j in t.keys()]
                     if i != q:
                         t1 = (container[i].values()[0][0] - container[q].values()[0][0]) ** 2 
                         t2 = (container[i].values()[0][1] - container[q].values()[0][1]) ** 2 
                         t3 = (container[i].values()[0][2] - container[q].values()[0][2]) ** 2 
                         cal = np.sqrt(t1+t2+t3)
-                        optimized_map.append({container[i].keys()[0]:[container[q].keys()[0],cal]})
-            for s in range(len(optimized_map)):
-                print(optimized_map[s].keys()[0],optimized_map[s].values()[0][0],
-                    optimized_map[s].values()[0][1])
-            print("")
-            same = []
-            for d in range(len(optimized_map)):
-                lock = [x for x in range(len(optimized_map)) if x != d]
-                sames = [j for h in same for j in h.keys()]
-                for a in range(len(lock)):
-                    if optimized_map[d].keys()[0] in sames:
-                        same[sames.index(optimized_map[d].keys()[0])][1].append({optimized_map[d].values()[0][0]:optimized_map[d].values()[0][1]}]})
-                    else:
-                        if optimized_map[d].keys()[0] == optimized_map[a].keys()[0]:
-                            same.append({optimized_map[d].keys()[0]:[{optimized_map[d].values()[0][0]:optimized_map[d].values()[0][1]}]})
+                        if container[i].keys()[0] in host:
+                            optimized_map[host.index(container[i].keys()[0])].values()[0].append(
+                                [container[q].keys()[0],cal]
+                            )
+                        else:
+                            optimized_map.append({container[i].keys()[0]:[[container[q].keys()[0],cal]]})
+            print("start")
+            for z in range(len(optimized_map)):
+                for o, p in optimized_map[z].items():
+                    print(o, p)
+            print("end")
