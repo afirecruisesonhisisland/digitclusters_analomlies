@@ -61,4 +61,9 @@ while len(container) < 3:
                 for o, p in optimized_map[z].items():
                     print(o, p)
             print("bad")
-            
+            print("")
+            print("hope")
+            for j in range(len(container)):
+                print(container[j])
+            print("sane")
+            print("")
