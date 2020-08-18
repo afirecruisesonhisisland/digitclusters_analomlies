@@ -12,7 +12,7 @@ alpha = 'abcdefghijklmnopqrstuvwxyz'
 while len(container) < 3:
     if len(container) != len(container)+1:
         identity = ''
-        identity = alpha[np.random.randint(0,len(alpha))] + str(np.random.randint(0,100000001))
+        identity = alpha[int(np.random.randint(0,len(alpha)))] + str(np.random.randint(0,100000001))
         # time.sleep(5)
         container.append({
             identity:[
